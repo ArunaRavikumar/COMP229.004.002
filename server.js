@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-var app = require('../app');
+var app = require('./config/app');
 var debug = require('debug')('comp2229004:server');
 var http = require('http');
 
@@ -87,4 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('Express app is running on http://localhost:${port}');
 }
