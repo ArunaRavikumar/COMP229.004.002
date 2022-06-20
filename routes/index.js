@@ -8,6 +8,7 @@ Date: 06-04-2022
 var express = require('express');
 var router = express.Router();
 
+let userController = require('../controller/userCollection');
 /* GET home page. */
 router.get('/',function(req, res, next) {
   res.render('index', { 
@@ -16,7 +17,8 @@ router.get('/',function(req, res, next) {
     about: 'ABOUT ME',
     projects: 'PROJECTS',
     service: 'SERVICE PAGE',
-    contact:'CONTACT ME'
+    contact:'CONTACT ME',
+    business: 'BUSINESS CONTACTS'
   });
 });
 // get about page
@@ -28,7 +30,8 @@ function about(req, res, next) {
     about: 'ABOUT ME',
     projects: 'PROJECTS',
     service: 'SERVICE PAGE',
-    contact:'CONTACT ME'
+    contact:'CONTACT ME',
+     business: 'BUSINESS CONTACTS'
   });
 }
 // get projects page
@@ -40,7 +43,8 @@ function projects(req, res, next) {
     about: 'ABOUT ME',
     projects: 'PROJECTS',
     service: 'SERVICE PAGE',
-    contact:'CONTACT ME'
+    contact:'CONTACT ME',
+    business: 'BUSINESS CONTACTS'
   });
 }
 // get service page
@@ -52,7 +56,8 @@ function service(req, res, next) {
     about: 'ABOUT ME',
     projects: 'PROJECTS',
     service: 'SERVICE PAGE',
-    contact:'CONTACT ME'
+    contact:'CONTACT ME',
+    business: 'BUSINESS CONTACTS'
   });
 }
 // get contact page
@@ -63,8 +68,16 @@ router.get('/',function(req, res, next) {
     about: 'ABOUT ME',
     projects: 'PROJECTS',
     service: 'SERVICE PAGE',
-    contact:'CONTACT ME'
+    contact:'CONTACT ME',
+    business: 'BUSINESS CONTACTS'
   });
 });
+// get business page
+router.get('/userData/business', userController.UserCollectionList);
+router.get('/userData/businessEdit', userController.UserCollectionList);
+router.get('/userData/Edit', userController.UserCollectionList);
+router.get('/edit/:id', userController.displayEditPage);
+router.post('/edit/:id', userController.processEditPage);  
 
+router.get('/delete/:id', userController.performDelete);
 module.exports = router;

@@ -16,7 +16,8 @@ router.get('/',function(req, res, next) {
     about: 'ABOUT ME',
     projects: 'PROJECTS',
     service: 'SERVICE PAGE',
-    contact:'CONTACT ME'
+    contact:'CONTACT ME',
+    business: 'BUSINESS CONTACTS'
   });
 });
 
